@@ -122,15 +122,6 @@ $(function(){
 		$(".pj").hide();
 		$(".chak").hide();
 	});
-	
-	
-	
-	
-	
-	
-	
-	
-	
 //	address
 	$("#addxad").click(function(){
 		$(".mask").show();
