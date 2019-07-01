@@ -54,13 +54,14 @@
                 var email = $("#inputEmail").val();
                 var pass = $("#inputPassword").val();
 
-                var json = {"email":"1713507920@qq.com","password":"123456"};
-
                 $.ajax({
                     type:"POST",
-                    contentType:"application/json",
+                    contentType:"application/x-www-form-urlencoded",
                     url:"http://localhost:8090/user/login",
-                    data:JSON.stringify(json),
+                    data:{
+                        "email":email,
+						"password":pass
+					},
                     success:function (data) {
                         console.log(data)
                     },

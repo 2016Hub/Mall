@@ -96,13 +96,10 @@
     {
         status: "success"
         data: {
-        	token 
-            user: {
-    			id //string
-                name
-                email
-                age
-            }
+            id //string
+            name
+            email
+            age
     	}
     } 
     或
@@ -114,7 +111,7 @@
         }
     }
     ```
-
+  
 - 用户信息修改： `/user/change`
 
   - 前端请求：
@@ -135,13 +132,10 @@
     {
         status: "success"
         data: {
-        	token 
-            user: {
-    			id //string
-                name
-                email
-                age
-            }
+    		id //string
+            name
+            email
+            age
     	}
     } 
     或
@@ -154,7 +148,7 @@
     }
     
     ```
-
+  
 - 用户密码修改： `/user/password`
 
   - 前端请求： 
@@ -245,7 +239,7 @@
         	id //int 
         	name
         	description
-        	price
+        	price //int
         	time
         	stock //int 库存
     	}
@@ -271,8 +265,8 @@
     {
         item_id //int
         user_id //string
-        price
-        amount
+        price //int
+        amount //int
         classify //int --> 0 添加购物车 1 购买
     }
     
@@ -298,7 +292,7 @@
     
     ```
 
-- 购物车详情或待支付、已支付： `/order/shopping`
+- 购物车详情或待支付、已支付等商品列表： `/order/shopping`
 
   - 前端请求： 
 
@@ -317,10 +311,15 @@
         status: "success"
         data: [
         	{
-        		id //int 
-        		name
-        		price
-    			amount    		
+    			amount,
+        		item:{
+        			id //int 
+        			name
+        			description
+        			price //int
+        			time
+        			stock //int 库存
+    			}
     		},
     		{
                 ...
@@ -344,13 +343,13 @@
     ```json
     {
         user_id //string
-        item_id: [id1,id2,...]
+        item_ids: [id1,id2,...] //int
     }
     ```
     
-- 后台返回：
-  
-  ```json
+  - 后台返回：
+    
+    ```json
     {
         status: "success"
         data: null
@@ -359,8 +358,10 @@
     {
         "status": "fail",
         "data": {
-            "errCode": 30002,
-            "errMsg": "账号或密码错误，请重试"
+          "errCode": 30002,
+          "errMsg": "账号或密码错误，请重试"
         }
     }
     ```
+    
+    
